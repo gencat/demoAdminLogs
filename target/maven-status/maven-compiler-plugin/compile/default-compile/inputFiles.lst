@@ -1,7 +1,0 @@
-/home/canigo/Documents/workspace-sts-3.7.1.RELEASE/demoAdminLogs/src/main/java/cat/gencat/demoadminlogs/model/Equipament.java
-/home/canigo/Documents/workspace-sts-3.7.1.RELEASE/demoAdminLogs/src/main/java/cat/gencat/demoadminlogs/util/PaginationUtils.java
-/home/canigo/Documents/workspace-sts-3.7.1.RELEASE/demoAdminLogs/src/main/java/cat/gencat/demoadminlogs/endpoints/EquipamentServiceController.java
-/home/canigo/Documents/workspace-sts-3.7.1.RELEASE/demoAdminLogs/src/main/java/cat/gencat/demoadminlogs/filters/CorsFilter.java
-/home/canigo/Documents/workspace-sts-3.7.1.RELEASE/demoAdminLogs/src/main/java/cat/gencat/demoadminlogs/dao/EquipamentDAO.java
-/home/canigo/Documents/workspace-sts-3.7.1.RELEASE/demoAdminLogs/src/main/java/cat/gencat/demoadminlogs/domain/EquipamentDAOImpl.java
-/home/canigo/Documents/workspace-sts-3.7.1.RELEASE/demoAdminLogs/src/main/java/cat/gencat/demoadminlogs/service/EquipamentService.java

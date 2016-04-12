@@ -1,1 +1,0 @@
-En aquesta carpeta es guardaran els fitxer de configuració de “Spring”.
