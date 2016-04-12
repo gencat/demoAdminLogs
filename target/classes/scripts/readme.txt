@@ -1,1 +1,0 @@
-En aquesta carpeta es guardaran els fitxer de scripts de l'aplicaci�
