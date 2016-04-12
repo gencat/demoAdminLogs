@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE log4j:configuration PUBLIC "-//APACHE//DTD LOG4J//EN" "http://logging.apache.org/log4j/docs/api/org/apache/log4j/xml/log4j.dtd">
+
+<log4j:configuration xmlns:log4j='http://jakarta.apache.org/log4j/'
+	debug="true">
+
+	<!-- Architecture appender -->
+	<appender name="fileApp" class="org.apache.log4j.DailyRollingFileAppender">
+		<param name="DatePattern" value="'.'yyyyMMdd" />
+		<param name="File" value="/tmp/demoAdminLogs_app.log" />
+		<param name="Append" value="true" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="canigo Message: %d{dd MMM yyyy HH:mm:ss,SSS} %-5p [%t] %c - %m%n - %X{APPID}" />
+		</layout>
+	</appender>
+	<appender name="fileCanigo" class="org.apache.log4j.DailyRollingFileAppender">
+		<param name="DatePattern" value="'.'yyyyMMdd" />
+		<param name="File" value="/tmp/demoAdminLogs_canigo.log" />
+		<param name="Append" value="true" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="canigo Message: %d{dd MMM yyyy HH:mm:ss,SSS} %-5p [%t] %c - %m%n - %X{APPID}" />
+		</layout>
+	</appender>
+	<appender name="filePersistence" class="org.apache.log4j.DailyRollingFileAppender">
+		<param name="DatePattern" value="'.'yyyyMMdd" />
+		<param name="File" value="/tmp/demoAdminLogs_persistence.log" />
+		<param name="Append" value="true" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="canigo Message: %d{dd MMM yyyy HH:mm:ss,SSS} %-5p [%t] %c - %m%n - %X{APPID}" />
+		</layout>
+	</appender>
+	<appender name="fileSpring" class="org.apache.log4j.DailyRollingFileAppender">
+		<param name="DatePattern" value="'.'yyyyMMdd" />
+		<param name="File" value="/tmp/demoAdminLogs_spring.log" />
+		<param name="Append" value="true" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="canigo Message: %d{dd MMM yyyy HH:mm:ss,SSS} %-5p [%t] %c - %m%n - %X{APPID}" />
+		</layout>
+	</appender>
+	<appender name="console" class="org.apache.log4j.ConsoleAppender">
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="canigo Message: %d{dd MMM yyyy HH:mm:ss,SSS} %-5p [%t] %c - %m%n - %X{APPID}" />
+		</layout>
+	</appender>
+	<category name="cat.gencat.demoadminlogs">
+		<appender-ref ref="fileApp" />
+		<appender-ref ref="console" />
+	</category>
+	<category name="cat.gencat.ctti.canigo">
+		<appender-ref ref="fileCanigo" />
+		<appender-ref ref="console" />
+	</category>
+	<category name="org.springframework">
+		<appender-ref ref="fileSpring" />
+		<appender-ref ref="console" />
+	</category>
+	<category name="org.springframework.messaging.simp.broker.SimpleBrokerMessageHandler">
+		<level value="off" />
+	</category>
+	<category name="org.hibernate">
+		<appender-ref ref="filePersistence" />
+		<appender-ref ref="console" />
+	</category>
+	<category name="javax.persistence">
+		<appender-ref ref="filePersistence" />
+		<appender-ref ref="console" />
+	</category>
+	<root>
+		<level value="debug" />
+	</root>
+</log4j:configuration>

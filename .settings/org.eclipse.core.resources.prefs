@@ -1,0 +1,6 @@
+eclipse.preferences.version=1
+encoding//src/main/resources/config/props/application.properties=ISO-8859-1
+encoding//src/main/resources/log4j/log4j.int.xml=ISO-8859-1
+encoding//src/main/resources/log4j/log4j.pre.xml=ISO-8859-1
+encoding//src/main/resources/log4j/log4j.pro.xml=ISO-8859-1
+encoding//src/main/resources/log4j/log4j.xml=ISO-8859-1

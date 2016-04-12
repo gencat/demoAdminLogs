@@ -1,0 +1,16 @@
+.page-footer {
+	min-height: 60px;
+	line-height: 1.5;
+	border-top: 1px solid #e6e6e6;
+	box-sizing: border-box;
+	color: #595959;
+	font-size: 14px;
+	text-align: center;
+	min-width: 1080px
+}
+
+.alert-danger {
+    border-color: #ebccd1;
+    background-color: #f2dede;
+    color: #a94442;
+}

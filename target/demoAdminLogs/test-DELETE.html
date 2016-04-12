@@ -1,0 +1,42 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>test</title>
+ <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+ <script>
+ 
+	$(document).ready(function() {
+ 
+		$('#deleteEquipament').click(function() {
+            // Make the DELETE request.
+            $.ajax({
+                type: "DELETE",
+                url: "api/equipaments/" + $('#id').val(),
+				dataType: "json",
+                success: function( response ){
+					alert('OK: ' + respone); 
+                },
+                error: function( error ){
+                    alert(error.statusText); 
+                }
+            });
+ 
+        });
+	});
+		
+ </script>
+</head>
+<body>
+
+<form id="equipamentForm">
+<div id="equipament">
+	<label for="id">id: </label> <input type="text" name="id" id="id" /> <br />
+	<input type="button" value="Eliminar" id="deleteEquipament" name="deleteEquipament"  />
+</div>
+</form>
+
+</body>
+</html>

@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE urlrewrite PUBLIC "-//tuckey.org//DTD UrlRewrite 3.0//EN"
+        "http://tuckey.org/res/dtds/urlrewrite3.0.dtd">
+<urlrewrite>
+	
+	<rule>
+		<condition type="request-url" operator="equal">.*/AppJava/a4j/.*</condition>
+        <from>^(.*)/AppJava/a4j/(.*)$</from>
+	    <to last="true">$1/AppJava/a4j/$2</to>
+    </rule>
+	         
+	<rule>
+        <note>
+            The rule means that request to .*/AppJava/.* (i.e. all request with AppJava prefix)that not matches 
+            pattern .*/AppJava/dwr.*, will be redirected to a new resource with the same request without 
+            AppJava prefix.
+        </note>        
+		<condition type="request-url" operator="equal">.*/AppJava/.*</condition>
+        <from>^(.*)/AppJava/(.*)$</from>
+	    <to last="true">$1/$2</to>
+    </rule>
+
+	<outbound-rule>
+        <note>
+        La outbound-rule especifica que quan s'invoca a response.encodeURL (o c:url si
+        s'est� fent servir JSTL) la url 
+           /*/AppJava/*.xhtml* 
+        ser� reescrita a 
+           /*/AppJava/*.xhtml*. 
+        �s a dir, es queda igual. Aquesta regla est� pensada per a no modificar aquelles
+        URLs de recursos din�mics que ja tenen fixat el prefix AppJava.
+       
+        Per exemple, si la petici� d'entrada �s 
+            /canigo.demo.jsf/AppJava/home.xhtml?reqCode=search
+        la url reescrita ser� la mateixa     
+            /canigo.demo.jsf/AppJava/home.xhtml?reqCode=search
+           
+        D'altra banda, el fet de que l'atribut last estigui fixat a true fa que si aquesta
+        regla s'aplica, ja no es miri la resta de reglas definides. Per tant, �s important
+        que aquesta sigui la primera regla a validar.	
+        </note>                
+        <from>^(.*)/AppJava/(.*)\.xhtml(\Q?\E*.*)$</from>
+	 <to last="true">$1/AppJava/$2.xhtml$3</to>
+    </outbound-rule>
+    
+    <outbound-rule>
+        <note>
+        La outbound-rule especifica que quan s'invoca a response.encodeURL (o c:url si
+        s'est� fent servir JSTL) la url 
+           /*/*.xhtml* 
+        ser� reescrita a 
+           /*/AppJava/*.xhtml*. 
+        �s a dir, s'afegeix el prefix AppJava. 
+            
+        Per exemple, si la petici� d'entrada �s 
+           /canigo.demo.jsf/home.xhtml?reqCode=search
+        la url reescrita ser� 
+           /canigo.demo.jsf/AppJava/home.xhtml?reqCode=search            
+        </note>                
+        <from>^/([^/]*)/(.*)\.xhtml(\Q?\E*.*)$</from>
+	 <to last="true">/$1/AppJava/$2.xhtml$3</to>
+    </outbound-rule>
+    
+    <outbound-rule>
+       <note>
+	La outbound-rule especifica que quan s'invoca a response.encodeURL (o c:url si
+       s'est� fent servir JSTL) la url 
+             /*/AppJava/dwr/* 
+       ser� deixada igual. Aquesta regla est� pensada per a no modificar aquelles URLs 
+       de recursos gestionats pel servlet de DWR que ja tenen fixat el prefix AppJava.
+
+       Per exemple, si la petici� d'entrada �s 
+             /canigo.demo.jsf/AppJava/dwr/interface/cuentas.js
+       la url reescrita ser� la mateixa     
+             /canigo.demo.jsf/AppJava/dwr/interface/cuentas.js
+         
+       D'altra banda, el fet de que l'atribut last estigui fixat a true fa que si aquesta
+       regla s'aplica, ja no es miri la resta de reglas definides. Per tant, �s important
+       que aquesta sigui la primera regla a validar en el cas de peticions de recursos de
+       DWR.	
+       </note>                
+        <from>^(.*)/AppJava/dwr/(.*)$</from>
+	    <to last="true">$1/AppJava/dwr/$2</to>
+    </outbound-rule>
+    
+    <outbound-rule>
+      <note>
+	La outbound-rule especifica que quan s'invoca a response.encodeURL (o c:url si
+       s'est� fent servir JSTL) la url 
+           /*/dwr/* 
+       ser� reescrita a 
+           /*/AppJava/dwr/*. 
+
+       Per exemple, si la petici� d'entrada �s 
+           /canigo.demo.jsf/dwr/interface/cuentas.js
+       la url reescrita ser� 
+           /canigo.demo.jsf/AppJava/dwr/interface/cuentas.js            
+        </note>                
+        <from>^(.*)dwr(.*)$</from>
+	    <to last="true">$1AppJava/dwr$2</to>
+    </outbound-rule>
+    
+    <outbound-rule>
+        <note>
+	La outbound-rule especifica que quan s'invoca a response.encodeURL (o c:url si 
+       s'est� fent servir JSTL) la url 
+             /*/j_spring_security_check 
+       ser� reescrita a 
+          /*/AppJava/j_spring_security_check.             
+        </note>                
+        <from>^(.*)/j_spring_(.*)$</from>
+	    <to last="true">$1/AppJava/j_spring_$2</to>
+    </outbound-rule>
+
+</urlrewrite>

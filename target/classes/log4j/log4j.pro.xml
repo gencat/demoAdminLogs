@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE log4j:configuration PUBLIC "-//APACHE//DTD LOG4J//EN" "http://logging.apache.org/log4j/docs/api/org/apache/log4j/xml/log4j.dtd">
+
+<log4j:configuration xmlns:log4j='http://jakarta.apache.org/log4j/'
+	debug="true">
+
+	<!-- Architecture appender -->
+	<appender name="file" class="org.apache.log4j.DailyRollingFileAppender">
+		<param name="DatePattern" value="'.'yyyyMMdd" />
+		<param name="File" value="/export/AppJavaDades/demoAdminLogs-${weblogic.Name}.log" />
+		<param name="Append" value="true" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="canigo Message: %d{dd MMM yyyy HH:mm:ss,SSS} %-5p [%t] %c - %m%n - %X{APPID}" />
+		</layout>
+	</appender>
+	<category name="cat.gencat.ctti">
+		<appender-ref ref="file" />
+	</category>
+	<root>
+		<level value="error" />
+	</root>
+</log4j:configuration>

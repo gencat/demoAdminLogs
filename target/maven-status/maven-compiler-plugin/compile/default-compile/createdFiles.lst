@@ -1,0 +1,7 @@
+cat/gencat/demoadminlogs/endpoints/EquipamentServiceController.class
+cat/gencat/demoadminlogs/util/PaginationUtils.class
+cat/gencat/demoadminlogs/model/Equipament.class
+cat/gencat/demoadminlogs/dao/EquipamentDAO.class
+cat/gencat/demoadminlogs/domain/EquipamentDAOImpl.class
+cat/gencat/demoadminlogs/service/EquipamentService.class
+cat/gencat/demoadminlogs/filters/CorsFilter.class
