@@ -1,6 +1,7 @@
 $(document).ready(function() {
 	
 	var socket;
+	var suscription;
 	var view = null;
 	
 	 jQuery('.tabs .tab-links a').on('click', function(e)  {
@@ -106,7 +107,7 @@ $(document).ready(function() {
 		        	 view = logFormObject;
 		        	 $('#connectionStatusIcon').removeClass();
 		        	 $('#connectionStatusIcon').addClass('fa fa-lg fa-check-circle');
-		             stompClient.subscribe(responseData, function(content){
+		        	 subscription = stompClient.subscribe(responseData, function(content){
 		            		 addLogMessage(content.body);
 		             });
 		         });
@@ -119,6 +120,9 @@ $(document).ready(function() {
   $("#desconnectar").click(function() {
     	
 	 	if (view != null){
+	 		
+	 		subscription.unsubscribe();
+	 		
 	 		$.ajax({
 				type: 'PUT',
 				url: 'api/logs/stopwatch',
