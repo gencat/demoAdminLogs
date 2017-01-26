@@ -1,5 +1,4 @@
 app:
-  #image: cscanigo/canigo-demo-adminlogs
   image: gencatcloud/tomcat:7
   environment:
     entorn: dev  
