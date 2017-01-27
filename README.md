@@ -1,23 +1,23 @@
-# demoAdminLogs
-Aplicació de demo amb el nou Mòdul d'Administració de Logs
+# Aplicació de demo del Mòdul d'Administració de logs
 
-Instal·lació
+*Instal·lació*
 
 Des de l’Eclipse descarregar el projecte:
 
 File -> Import -> Projects from Git -> Clone URI https://github.com/gencat/demoAdminLogs.git (introduïr unes credencials vàlides de Github)
--> Sel·lecccionar branch “master” -> Sel·leccionar directori “/home/canigo/Documents/workspace-sts-3.7.1.RELEASE” com a Destinations 
+-> Sel·lecccionar branch “master” -> Sel·leccionar directori “/home/canigo/Documents/workspace-sts-3.7.1.RELEASE” com a Destinations en cas d'estar treballant amb el workspace per defecte de l'entorn de desenvolupament de Canigó, o bé un altre en cas contrari.
 -> Sel·leccionar l’opció “Import Existing Eclipse projects” -> Finish
 
-Construïr l’aplicació:
+*Construcció de l’aplicació*
 
 Run as… -> Maven build -> Configurar Base Directory “${workspace_loc:/demoAdminLogs}“, Goals “clean package”-> Executar
 
-Adaptar els paths “home/canigo/…” del fitxer “<workspace_eclipse>/<demoAdminLogs>/src/main/docker/docker-compose.yml” als paths locals
-en cas de no haver fer servit els noms per defecte:
+Adaptar els paths “home/canigo/…” del fitxer “<workspace_eclipse>/<demoAdminLogs>/src/main/docker/docker-compose.yml” als paths locals en cas de no haver fer servit els noms per defecte:
 
 <workspace_eclipse>=/home/canigo/Documents/workspace-sts-3.7.1.RELEASE
 <demoAdminLogs>=demoAdminLogs
+
+*Execució de l'aplicació*
 
 Executar la demo des de linia de comandes:
 
